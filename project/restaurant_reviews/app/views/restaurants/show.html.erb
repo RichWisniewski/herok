@@ -1,0 +1,15 @@
+<h1> <%= @restaurant.name %></h1>
+<%= link_to("Back to homepage", root_url) %>
+<%= link_to("Add review", new_restaurant_review_path(@restaurant)) %>
+<% unless @reviews.empty? %>
+<ul>
+<% @reviews.each do |review| %>
+	<li>
+		<p><%= review.comment %></p>
+		<h3><%= review.name %></h3>
+	</li>
+<% end %>
+</ul>
+<% else %>
+	<h2>No reviews</h2>
+<% end %>
